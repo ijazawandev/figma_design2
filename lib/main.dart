@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
               alignment: Alignment.topCenter,
               child: SizedBox(
                 height: height * 0.52,
-                width: double.infinity,
+                width: width,
                 child: FittedBox(
                   fit: BoxFit.fill,
                   child: ConstrainedBox(
@@ -28,10 +28,14 @@ class MyApp extends StatelessWidget {
                       minHeight: height * 0.52,
                       maxHeight: height * 0.52,
                     ),
-                    child: Image.asset(
-                      'assets/kismas.png',
-                      fit: BoxFit.fill,
-                      scale: 0.01,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (context, index) => Image.asset(
+                        'assets/kismas.png',
+                        fit: BoxFit.fill,
+                        scale: 0.01,
+                      ),
                     ),
                   ),
                 ),
