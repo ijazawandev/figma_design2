@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:readmore/readmore.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,225 +10,274 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height=MediaQuery.of(context).size.height;
-    final width=MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return MaterialApp(
-        home: Scaffold(
-          body: Stack(
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Image.asset(
-                  'assets/kismas.png',
-
-                  // fit: BoxFit.fitHeight,
-                  // scale: 0.7,
+      home: Scaffold(
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                height: height * 0.52,
+                width: double.infinity,
+                child: FittedBox(
+                  fit: BoxFit.fill,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: height * 0.52,
+                      maxHeight: height * 0.52,
+                    ),
+                    child: Image.asset(
+                      'assets/kismas.png',
+                      fit: BoxFit.fill,
+                      scale: 0.01,
+                    ),
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: height * 0.1, left: 10),
-                child: Row(
-                  children: [
-                    Container(
-                      height: height*.05,
-                      width: width*.1,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Color(0xff333848),
-                      ),
-                      child: Image.asset(
-                        'assets/backword.png',
-                        scale: 2,
-                      ),
-                    ),
-                    SizedBox(width: width * .5),
-                    Container(
-                      height: height*.05,
-                      width: width*.1,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Color(0xff333848)),
-                      child: Image.asset('assets/safe.png', scale: 1.8),
-                    ),
-                    SizedBox(width: width * .06),
-                    Container(
-                      height: height*.05,
-                      width: width*.1,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Color(0xff333848)),
-                      child: Image.asset(
-                        'assets/upload.png',
-                        scale: 3,
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: width * 0.06,
+                vertical: height * 0.06,
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: height * 0.5,
-                  width: double.infinity,
+              child: Row(
+                children: [
+                  Container(
+                    height: height * .05,
+                    width: width * .1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color(0xff333848),
+                    ),
+                    child: Image.asset(
+                      'assets/backword.png',
+                      scale: 2,
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    height: height * .05,
+                    width: width * .1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color(0xff333848),
+                    ),
+                    child: Image.asset('assets/safe.png', scale: 1.8),
+                  ),
+                  SizedBox(width: width * .06),
+                  Container(
+                    height: height * .05,
+                    width: width * .1,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color(0xff333848),
+                    ),
+                    child: Image.asset(
+                      'assets/upload.png',
+                      scale: 3,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: height * 0.50,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                   color: Colors.white,
-                   padding: const EdgeInsets.only(left: 10,right: 10),
-                  // margin: const EdgeInsets.all(50),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Divider(
+                        color: Color(0xffe4e4e4),
+                        thickness: 5,
+                        height: 15,
+                        indent: 140,
+                        endIndent: 140,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                        Container(height: 40,width: 40,decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),color: Color(0xfff5f3f3)
-                        ),
-                        child: Image.asset('assets/pta.png'),
-                        ),
+                          Container(
+                            height: height * 0.06,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: const Color(0xfff0eaea),
+                            ),
+                            child: Image.asset(
+                              'assets/leaf.png',
+                              scale: 2,
+                            ),
+                          ),
                           Column(
                             children: [
-                              Text(
+                              const Text(
                                 'Design house',
                                 style: TextStyle(fontSize: 20),
                               ),
                               Row(
                                 children: [
                                   Image.asset(
-                                    'assets/star.png',
-                                    scale: 8,
+                                    'assets/star (1).png',
+                                    scale: 2,
                                   ),
-                                  Text('4.9'),
-                                  Text('(127)')
+                                  SizedBox(width: width * .01),
+                                  const Text('4.9'),
+                                  SizedBox(
+                                    width: width * .01,
+                                  ),
+                                  const Text('(127)')
                                 ],
                               )
                             ],
                           ),
-                          SizedBox(width: width * 0.32),
+                          SizedBox(width: width * 0.28),
                           Container(
                             height: height * .045,
-                            width: width*.2,
+                            width: width * .2,
                             decoration: BoxDecoration(
-                                color: Color(0xff152432),
+                                color: const Color(0xff152432),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Image.asset(
-                              'assets/mess.png',
+                              'assets/message (2).png',
                               scale: 2,
                             ),
                           )
                         ],
                       ),
                       SizedBox(
-                        height: height*.05,
+                        height: height * .044,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             'Kismas',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            width: width*.52,
+                            width: width * .48,
                           ),
-                          Text('Posted 1 hr ago')
+                          const Text('Posted 1 hr ago')
                         ],
                       ),
                       SizedBox(
-                        height: height*.03,
+                        height: height * .02,
                       ),
                       Row(
                         children: [
                           Container(
-                            height: height*.04,
-                            width: width*.3,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: width * 0.02,
+                                vertical: height * .01),
+                            height: height * .04,
+                            width: width * .3,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xffb4efe0)),
+                                borderRadius: BorderRadius.circular(50),
+                                color: const Color(0xffb4efe0)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.sync,
                                   size: 15,
                                 ),
-                                SizedBox(
-                                  width: width*.03
-                                ),
-                                Text('Shop online')
+                                SizedBox(width: width * .03),
+                                const Text('Shop online')
                               ],
                             ),
                           ),
-                          SizedBox(
-                            width: width*.05
-                          ),
+                          SizedBox(width: width * .05),
                           Container(
-                            height: height*.04,
-                            width: width*.3,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: width * 0.02,
+                                vertical: height * .01),
+                            height: height * .04,
+                            width: width * .3,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xffc5e1fa)),
+                                borderRadius: BorderRadius.circular(50),
+                                color: const Color(0xffc5e1fa)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.power_settings_new_rounded,
                                   size: 15,
                                 ),
                                 SizedBox(
-                                  width: width*.02,
+                                  width: width * .02,
                                 ),
-                                Text('Best product')
+                                const Text('Best product')
                               ],
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: height*.02,
+                        height: height * .02,
                       ),
-                      Text(
+                      const Text(
                         'Description',
-                        style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
-                            child: Text(
-                              'Goldy lamp in an ideal solution for creating\n'
-                                  'acozy atmosphere in your home.This\n'
-                                  'stylish and functional ligting element\n'
-                                  'provides comfortable.',
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: height*.02,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: height*.07,
-                          width: width*1,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xffd971e6)),
-                          child: Center(
-                              child: Text(
-                                'Exchange',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              )),
+                        padding: EdgeInsets.only(right: width * 0.04),
+                        child: const ReadMoreText(
+                          'Goldy lamp in an ideal solution for creating a cozy atmosphere in your home.This stylish and functional lighting element provides comfortable. The Goldy lamp features a sleek and modern design that effortlessly complements any interior decor style. ',
+                          style: TextStyle(fontSize: 18),
+                          trimMode: TrimMode.Line,
+                          trimLines: 3,
+                          trimExpandedText: 'Read less',
+                          trimCollapsedText: 'Read more',
+                          moreStyle: TextStyle(fontWeight: FontWeight.bold),
+                          lessStyle: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      )
+                      ),
+                      SizedBox(height: height * .01),
+                      Center(
+                        child: Container(
+                          height: height * .07,
+                          width: width * 1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xfff371d2),
+                                Color(0xffcd71ee),
+                              ],
+                            ),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Exchange',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
