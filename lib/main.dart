@@ -12,31 +12,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final images = [
+      'kismas',
+      'image1',
+      'image2',
+      'image3',
+    ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Stack(
           children: [
-            Align(
-              alignment: Alignment.topCenter,
+            Positioned(
+              bottom: height * 0.48,
               child: SizedBox(
                 height: height * 0.52,
                 width: width,
-                child: FittedBox(
-                  fit: BoxFit.fill,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: height * 0.52,
-                      maxHeight: height * 0.52,
-                    ),
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (context, index) => Image.asset(
-                        'assets/kismas.png',
-                        fit: BoxFit.fill,
-                        scale: 0.01,
-                      ),
-                    ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 4,
+                  itemBuilder: (context, index) => Image.asset(
+                    'assets/${images[index]}.png',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
@@ -123,7 +120,7 @@ class MyApp extends StatelessWidget {
                             ),
                             child: Image.asset(
                               'assets/leaf.png',
-                              scale: 2,
+                              scale: 12,
                             ),
                           ),
                           Column(
