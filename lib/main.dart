@@ -101,26 +101,47 @@ class MyApp extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Divider(
-                        color: Color(0xffe4e4e4),
-                        thickness: 5,
-                        height: 15,
-                        indent: 140,
-                        endIndent: 140,
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 5.0),
+                          child: Container(
+                            height: 5,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(210),
+                                color: Color(0xffe4e4e4)),
+                          ),
+                        ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: height * 0.06,
+                            height: height * 0.065,
+                            width: height * 0.065,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                               color: const Color(0xfff0eaea),
                             ),
-                            child: Image.asset(
-                              'assets/leaf.png',
-                              scale: 12,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: height * 0.06,
+                                  width: height * 0.06,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Colors.transparent,
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: Image.asset(
+                                    'assets/leaf.png',
+                                    scale: 12,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Column(
@@ -145,7 +166,7 @@ class MyApp extends StatelessWidget {
                               )
                             ],
                           ),
-                          SizedBox(width: width * 0.28),
+                          Spacer(),
                           Container(
                             height: height * .045,
                             width: width * .2,
