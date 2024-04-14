@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   height: height * .05,
-                  width: width * .1,
+                  // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: const Color(0xff333848),
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                 const Spacer(),
                 Container(
                   height: height * .05,
-                  width: width * .1,
+                  // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: const Color(0xff333848),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(width: width * .06),
                 Container(
                   height: height * .05,
-                  width: width * .1,
+                  // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: const Color(0xff333848),
@@ -172,27 +172,32 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        Column(
-                          children: [
-                            const Text(
-                              'Design house',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/star (1).png',
-                                  scale: 2,
-                                ),
-                                SizedBox(width: width * .01),
-                                const Text('4.9'),
-                                SizedBox(
-                                  width: width * .01,
-                                ),
-                                const Text('(127)')
-                              ],
-                            )
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+
+                              const Text(
+                                'Design house',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/star (1).png',
+                                    scale: 2,
+                                  ),
+                                  SizedBox(width: width * .01),
+                                  const Text('4.9'),
+                                  SizedBox(
+                                    width: width * .01,
+                                  ),
+                                  const Text('(127)')
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                         Spacer(),
                         Container(
@@ -203,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(20)),
                           child: Image.asset(
                             'assets/message (2).png',
-                            scale: 2,
+                            scale: 1.3,
                           ),
                         )
                       ],
@@ -218,9 +223,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(
-                          width: width * .48,
-                        ),
+                       Spacer(),
                         const Text('Posted 1 hr ago')
                       ],
                     ),
@@ -240,10 +243,11 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              const Icon(
-                                Icons.sync,
-                                size: 15,
-                              ),
+                              Image.asset('assets/loading-arrows.png',scale: .10,),
+                              // const Icon(
+                              //   Icons.sync,
+                              //   size: 15,
+                              // ),
                               SizedBox(width: width * .03),
                               const Text('Shop online')
                             ],
