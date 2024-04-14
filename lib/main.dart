@@ -40,11 +40,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Text(
-            index.toString(),
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.only(top: 350,left: 30),
+            child: Container(height: 40,width: 80,
+              decoration: BoxDecoration(color: Color(0xff0a1222),
+              borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Text(
+                  index.toString(),
+                  style: TextStyle(
+                    fontSize: 40,color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
           Positioned(
