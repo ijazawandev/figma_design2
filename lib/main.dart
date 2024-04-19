@@ -27,10 +27,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int index = 1;
   final images = [
-    'image (1)',
-    'image (2)',
-    'image (3)',
-    'image (4)',
+    '1',
+    '2',
+    '3',
+    '4',
+
   ];
 
   @override
@@ -40,22 +41,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 350,left: 30),
-            child: Container(height: 40,width: 80,
-              decoration: BoxDecoration(color: Color(0xff0a1222),
-              borderRadius: BorderRadius.circular(20)),
-              child: Center(
-                child: Text(
-                  index.toString(),
-                  style: TextStyle(
-                    fontSize: 40,color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
+
           Positioned(
             bottom: height * 0.48,
             child: SizedBox(
@@ -65,13 +51,29 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (context, i) => Image.asset(
-                  'assets/${images[i]}.png',
-                  fit: BoxFit.scaleDown,
+                  'assets/${images[i]}.jpg',
+                  fit: BoxFit.cover,
                 ),
                 onPageChanged: (i) {
                   setState(() => index = i + 1);
                   debugPrint('index: $index');
                 },
+              ),
+            ),
+          ),
+          Padding(
+            padding:  EdgeInsets.only(top: height*.45,right:width*.6),
+            child: Container(height:height*.04,width: width*.15,
+              decoration: BoxDecoration(color: Color(0xff383f5b),
+                  borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Text(
+                  '$index/4',
+                  style: TextStyle(
+                    fontSize: 20,color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
           ),
@@ -87,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: const Color(0xff333848),
+                    color: const Color(0xff383f5b),
                   ),
                   child: Image.asset(
                     'assets/backword.png',
@@ -100,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: const Color(0xff333848),
+                    color: const Color(0xff383f5b),
                   ),
                   child: Image.asset('assets/safe.png', scale: 1.8),
                 ),
@@ -110,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                   // width: width * .1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: const Color(0xff333848),
+                    color: const Color(0xff383f5b),
                   ),
                   child: Image.asset(
                     'assets/upload.png',
@@ -142,8 +144,8 @@ class _HomePageState extends State<HomePage> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5.0),
                         child: Container(
-                          height: 5,
-                          width: 30,
+                          height: height*.006,
+                          width: width*.1,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(210),
                               color: Color(0xffe4e4e4)),
@@ -182,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
+                          padding:  EdgeInsets.only(left:width* .04),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
